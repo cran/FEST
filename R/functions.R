@@ -74,7 +74,7 @@ SetModels <- function(trueModels,
 SimulationStudyLD <- function(models,
                               ##                              chr=22,
                               nmarker=c(10,100,1000, Inf),
-                              nsim=c(1000,1000,1000,1000,400),
+                              nsim=c(1000,1000,1000,400),
                               frequencyData=NULL,
                               freqThreshold=c(rep(0.1, 4), 0.0),
                               limitCentiMorgan=0,
@@ -104,6 +104,8 @@ SimulationStudyLD <- function(models,
     if (length(nchr) != length(nsim)) {
       stop("List chr and and vector nsim have unequal lengths")
     }
+    p <- length(nmarker)
+
     chr.list <- vector("list", p)
     for (i in 1:p) {
       chr.list[[i]] <- chr
@@ -615,7 +617,8 @@ InitializeLD <- function(chunkSize=1000, ldFile="ld_chr22_CEU.txt") {
   cat("Number of chunks: ", nchunk, "\n")
 
   ##  download.file("http://folk.uio.no/thoree/FEST/affy.RData", "affy.RData")
-  load("affy.RData") ## -> affy
+  affy <- NULL # define affy such that R CMD check do not report warnings.
+  load("affy.RData") ## get affy
   affy22 <- affy[[22]] #SNP         cM     A     C
 
   hapdat <- vector("list", nchunk)
@@ -680,6 +683,7 @@ MakeHaplodataObject <- function(freqs, cor) {
 
 
 SelectHapdat <- function(subFreq) {
+  hapdat <- NULL # Temporary, to avoid warnings in 'R CMD check'
   hapdat.sub <- hapdat
   for (i in 1:length(hapdat.sub)) {
     nm <- names(hapdat.sub[[i]]$freqs)
@@ -697,6 +701,7 @@ SelectHapdat <- function(subFreq) {
 #
 SimulateHaplotypesLD <- function(nmarker, nhap) {
   u <- NULL
+  hapdat.sub <- NULL # Temporary, to avoid warnings in 'R CMD check'
   for (i in 1:length(hapdat.sub)) {
     hsim <- haplosim.fix(nhap, hapdat.sub[[i]], force.polym=FALSE, summary=FALSE)
     u <- cbind(u, hsim$data+1)
@@ -1367,7 +1372,7 @@ SelectSNPs <- function(freqObj, neach, chr=c(1:22), threshold=0.1, limitCentiMor
   invisible(freqObjSub)
 }
 
-SummaryAffymetrix <- function() {
+SummaryAffymetrix <- function(affy) {
   n <- NULL
   maf.min <- NULL
   

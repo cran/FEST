@@ -42,7 +42,8 @@ prefixMerlin.input <- paste(prefix.tmpfiles, "for", sep="")
   ##  assignInNamespace("FEST.perlpath", FEST.perlpath,  ns = "FEST")
 
   ##  assignInNamespace("haplosim", "haplosim.fix", pos="package:hapsim")
-  haplosim <- haplosim.fix
+  ##  reassignInPackage("haplosim", pkgName="hapsim", haplosim.fix)
+  haplosim <- haplosim.fix # hapsim does not have a name space
   
   ## Check if merlin is installed
   merlinOutput <- system("merlin", intern=TRUE, ignore.stderr=TRUE)

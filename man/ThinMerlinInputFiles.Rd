@@ -1,13 +1,8 @@
 \name{ThinMerlinInputFiles}
 \Rdversion{1.1}
 \alias{ThinMerlinInputFiles}
-%- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-  %%  ~~function to do ... ~~
-  Thinning of Merlin Input files 
-}
+\title{Thinning of Merlin Input files}
 \description{
-  %%  ~~ A concise (1-5 lines) description of what the function does. ~~
   Merlin input files are thinned based on thresholds for minor allele freqency and minimal distance (in cM) between markers.
 
 }
@@ -15,24 +10,20 @@
 ThinMerlinInputFiles(mapfile, datfile, freqfile, pedfile, nNotMarker = 5,
                      limitCentiMorgan = 0, freqThreshold = 0, suffix = "_thinned")
 }
-%- maybe also 'usage' for other objects documented here.
+
 \arguments{
   \item{mapfile}{
-%%     ~~Describe \code{mapfile} here~~
 File of the type filename.map which contains the genetic position of each marker (chromosome and position in cM).
 
 }
   \item{datfile}{
-%%     ~~Describe \code{datfile} here~~
 File of the type filename.dat which contains the marker identifiers (e.g. rsIDs).
 }
   \item{freqfile}{
-%%     ~~Describe \code{freqfile} here~~
 File of the type filename.freq which contains the allele frequencies of each marker.
 
 }
   \item{pedfile}{
-%%     ~~Describe \code{pedfile} here~~
 File of the type filename.ped which contains family information and genotype data for all individuals.
 
 }
@@ -44,37 +35,18 @@ File of the type filename.ped which contains family information and genotype dat
     %% stored in the datfile.
 }
   \item{limitCentiMorgan}{
-%%     ~~Describe \code{limitCentiMorgan} here~~
 The data set is thinned such that the distance between two consecutive markers is larger than this limit. Default value is 0.
 }
   \item{freqThreshold}{
-%%     ~~Describe \code{freqThreshold} here~~
 Markers with a minor allele frequency smaller or equal to this limit will be removed. Default value is 0. 
 }
  \item{suffix}{
-%%     ~~Describe \code{suffix} here~~
 Suffix that will be added to the filenames of the thinned files.
 }
 }
-%%\value{
-%%  ~Describe the value returned
-%%  If it is a LIST, use
-%%  \item{comp1 }{Description of 'comp1'}
-%%  \item{comp2 }{Description of 'comp2'}
-%% ...
-%%}
-%%\references{
-%% ~put references to the literature/web site here ~
-%%}
 \author{
-%%  ~~who you are~~
 Øivind Skare \email{oivind.skare@medisin.uio.no}
 }
-%%\note{
-%%  ~~further notes~~
-%%}
-
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
   \code{\link{SortMerlinInputFiles}}
