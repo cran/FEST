@@ -56,31 +56,28 @@ Markers with a minor allele frequency smaller or equal to this limit will be rem
 Suffix that will be added to the filenames of the thinned files.
 }
 }
-\details{
-%%  ~~ If necessary, more details than the description above ~~
-}
-\value{
+%%\value{
 %%  ~Describe the value returned
 %%  If it is a LIST, use
 %%  \item{comp1 }{Description of 'comp1'}
 %%  \item{comp2 }{Description of 'comp2'}
 %% ...
-}
-\references{
+%%}
+%%\references{
 %% ~put references to the literature/web site here ~
-}
+%%}
 \author{
 %%  ~~who you are~~
 Øivind Skare \email{oivind.skare@medisin.uio.no}
 }
-\note{
+%%\note{
 %%  ~~further notes~~
-}
+%%}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{SortMerlinInputFiles}}
 }
 \examples{
 ## The example can not be run, user must supply data.

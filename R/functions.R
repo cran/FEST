@@ -495,10 +495,11 @@ SimulationStudyWithFrequencyData <- function(model, chr,
     subFreq <- SelectSNPs(frequencyData, neach=neach[i], chr=chr[[i]], threshold=freqThreshold[i],
                           limitCentiMorgan=limitCentiMorgan)
 
-    SelectHapdat(subFreq)
-    
+    if (LD) {
+      SelectHapdat(subFreq)
+    }
     WriteInputFiles(subFreq, chr=chr[[i]])
-    nmarker[i] <- sum(unlist(lapply(subFreq, nrow)))
+    nmarker <- sum(unlist(lapply(subFreq, nrow)))
     nchr <- length(chr[[i]])
     lnliks[[i]] <- RunAnalysesAll(model=model, nmarker=nmarker, nchr=nchr,
                                   nsim=nsim[i], seed=startSeed,

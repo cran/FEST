@@ -79,16 +79,21 @@ saveMerlinFiles=FALSE, verbose=TRUE)
   print(round(stat1$posterior[2,,],4))
 
   ## Simulation study using Affymetrix frequency data
-  ## download file from 'http://folk.uio.no/thoree/FEST/affy.RData'
+  ## The complete 500K data file may be downloaded from
+  ## 'http://folk.uio.no/thoree/FEST/affy.RData'
   ## load("affy.RData")
-  ## simObj2 <- SimulationStudy(models, chr=chr, nmarker=nmarker, nsim=nsim,
-  ##                            frequencyData=affy, freqThreshold=c(0.1,0.1))
-  ##  stat2 <- ComputeSummaryStatistics(simObj2)
+
+  ## A small subset of the Affymetrix frequency data. 100 markers on
+  ## each chromsome
+  data(affy.subset)
+  simObj2 <- SimulationStudy(models, chr=chr, nmarker=nmarker, nsim=nsim,
+                             frequencyData=affy.subset, freqThreshold=c(0.1,0.1))
+  stat2 <- ComputeSummaryStatistics(simObj2)
   ## Average posterior results (Affymetrix):
   ## No of markers=22:
-  ## print(round(stat1$posterior[1,,],4)) # rows: true models, columns: alternative models
+  print(round(stat1$posterior[1,,],4)) # rows: true models, columns: alternative models
   ## No of markers=220:
-  ## print(round(stat1$posterior[2,,],4))
+  print(round(stat1$posterior[2,,],4))
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.

@@ -7,6 +7,7 @@
    Allele frequency data from the Affymetrix 500K chip derived from the
    HapMap data. It contains frequency information
    for all 22 autosomal chromosomes.
+   See also \code{\link{affy.subset}}.
    %It was downloaded    from the Chiamo home page
    %\url{http://www.stats.ox.ac.uk/\~marchini/software/gwas/chiamo.html}.
  }

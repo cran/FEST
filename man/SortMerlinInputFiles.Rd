@@ -49,21 +49,21 @@ Vector describing the chromosomes to be included, for example c(1:10). Default i
 Identifiers (e.g. rsIDs) of SNPs that should be excluded. Default is NULL.
 }
 }
-\details{
+%%\details{
 %%  ~~ If necessary, more details than the description above ~~
-}
-\references{
+%%}
+%%\references{
 %% ~put references to the literature/web site here ~
-}
+%%}
 \author{Øivind Skare \email{oivind.skare@medisin.uio.no}}
-\note{
+%%\note{
 %%  ~~further notes~~
-}
+%%}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+  \code{\link{ThinMerlinInputFiles}}
 }
 \examples{
 ## The example can not be run, user must supply data.
